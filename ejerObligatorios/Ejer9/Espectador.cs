@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,7 +9,6 @@ namespace Ejer9
 {
     internal class Espectador
     {
-        private Random random = new Random();
         private string nombre;
         private int edad, dinero;
         private static List<string> nombresDisponibles = new List<string>
@@ -32,14 +32,19 @@ namespace Ejer9
         }
         public Espectador() 
         {
-            this.nombre = GenerarNombreAleatorio();
-            this.edad = random.Next(7, 21);
-            this.dinero = random.Next(100, 170);
+            GeneracionAleatoria();
         }
-        private string GenerarNombreAleatorio()
+        private void GeneracionAleatoria()
         {
+            //La generacion aleatoria me la explico muriel
+            var guia = Guid.NewGuid();
+            var SoloNumeros = new String(guia.ToString().Where(Char.IsDigit).ToArray()); 
+            var semilla = int.Parse(SoloNumeros.Substring(0,4)); 
+            Random random = new Random(semilla);
             int nombreAleat = random.Next(nombresDisponibles.Count);
-            return nombresDisponibles[nombreAleat];
+            nombre = nombresDisponibles[nombreAleat];
+            edad = random.Next(7, 21);
+            dinero = random.Next(100, 170);
         }
     }
 }

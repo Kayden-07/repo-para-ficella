@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,8 +23,10 @@ namespace Ejer9
             get { return precioPeli; }
             set { precioPeli = value; }
         }
-        public SalaCine(string peliActual, int precioPeli)
+
+        public SalaCine(string peliActual, int precioPeli, Pelicula pelicula)
         {
+            this.pelicula = pelicula;
             this.peliActual = peliActual;
             this.precioPeli = precioPeli;
             asientos = new Asiento[8, 9];
@@ -49,10 +52,12 @@ namespace Ejer9
                     Asiento asiento = asientos[i, j];
                     if (asiento.Ocupado)
                     {
-                        Console.Write("[X]");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write("[X] ");
                     }
                     else
                     {
+                        Console.ForegroundColor = ConsoleColor.White;
                         Console.Write($"[{asiento.Fila}{asiento.Columna}]");
                     }
                 }
@@ -61,6 +66,12 @@ namespace Ejer9
         }
         public bool AsignarAsiento(Espectador espectador)
         {
+            var guia = Guid.NewGuid();
+            var SoloNumeros = new String(guia.ToString().Where(Char.IsDigit).ToArray());
+            var semilla = int.Parse(SoloNumeros.Substring(0, 4));
+            Random random = new Random(semilla);
+            bool estaSentado = false;
+
             if (espectador.Edad < pelicula.EdadMinima)
             {
                 return false;
@@ -69,18 +80,17 @@ namespace Ejer9
             {
                 return false;
             }
-            for (int i = 0; i < 8; i++)
+            while (!estaSentado) 
             {
-                for (int j = 0; j < 9; j++)
+                int i = random.Next(1, 8);
+                int j = random.Next(1, 9);
+                if (!asientos[i, j].Ocupado)
                 {
-                    if (!asientos[i, j].Ocupado)
-                    {
-                        asientos[i, j].Ocupado = true;
-                        return true;
-                    }
+                    estaSentado = true;
+                    asientos[i, j].Ocupado = true;
+                    return true;
                 }
             }
-            Console.WriteLine("No hay asientos disponibles.");
             return false;
         }
     }

@@ -10,15 +10,18 @@ namespace Ejer9
     {
         static void Main(string[] args)
         {
-            SalaCine sala = new SalaCine("Rosa", 134);
             Pelicula pelicula = new Pelicula("Avengers", 180, 13, "Joss Whedon");
+            SalaCine sala = new SalaCine("Rosa", 134, pelicula);
             sala.MostrarAsientos();
             Console.Write("");
-            for (int i = 0; i < 10; i++) 
-            { 
+            for (int i = 0; i < 20; i++)
+            {
                 Espectador espectador = new Espectador();
                 sala.AsignarAsiento(espectador);
             }
+            Console.WriteLine();
+            sala.MostrarAsientos();
+
             Console.ReadKey();
         }
     }
