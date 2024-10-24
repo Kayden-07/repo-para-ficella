@@ -61,7 +61,7 @@ namespace Ejer10
                 {
                     if (i == cartaSaque.Count - 1)
                     {
-                        return $"[{cartaSaque[i].Numero}|{cartaSaque[i].Palo}]";
+                        return $"[{cartaSaque[i].Numero}|{cartaSaque[i].Palo}] ";
                     }
                 }
             }
@@ -73,20 +73,22 @@ namespace Ejer10
         }
         public string DarCartas(int cantPedidas)
         {
-            if (barajaCartas.Count != 0)
+            string cartas = "";
+            if (barajaCartas.Count >= cantPedidas)
             {
                 for (int i = 0; i < cantPedidas; i++)
                 {
-                    return $"[{barajaCartas[i].Numero}|{barajaCartas[i].Palo}] ";
-                }
-                for (int i = barajaCartas.Count - 1; i >= 0; i--)
-                {
-                    if (i == 0)
+                    cartas += $"[{barajaCartas[0].Numero}|{barajaCartas[0].Palo}] ";
+                    for (int j = barajaCartas.Count - 1; j >= 0; j--)
                     {
-                        cartaSaque.Add(barajaCartas[i]);
-                        barajaCartas.Remove(barajaCartas[i]);
+                        if(j == 0)
+                        {
+                            cartaSaque.Add(barajaCartas[j]);
+                            barajaCartas.Remove(barajaCartas[j]);
+                        }
                     }
                 }
+                return cartas;
             }
             return "No hay mas cartas";
         }
