@@ -14,25 +14,19 @@ namespace Ejer10
 
             baraja1.Barajar();
 
-            foreach (var carta in baraja1.barajaCartas)
-            {
-                Console.Write($"[{carta.Numero}|{carta.Palo}] ");
-            }
             Console.WriteLine();
             Console.WriteLine();
 
-            Console.Write(baraja1.SiguienteCarta());
-            Console.Write(baraja1.DarCartas(5));
+            Console.Write(baraja1.MostrarCartas());
 
             Console.WriteLine();
             Console.WriteLine();
 
-            foreach (var carta in baraja1.barajaCartas)
-            {
-                Console.Write($"[{carta.Numero}|{carta.Palo}] ");
-            }
+
             Console.WriteLine();
             Console.WriteLine();
+
+            Console.Write(baraja1.CartasMonton());
 
             Console.ReadKey();
         }

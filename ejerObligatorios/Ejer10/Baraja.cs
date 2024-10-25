@@ -92,5 +92,31 @@ namespace Ejer10
             }
             return "No hay mas cartas";
         }
+        public string CartasMonton()
+        {
+            string cartas = "";
+            if (cartaSaque.Count > 0)
+            {
+                foreach (var carta in cartaSaque)
+                {
+                    cartas += $"[{carta.Numero}|{carta.Palo}] ";
+                }
+                return cartas;
+            }
+            return "No hay cartas que ya salieron";
+        }
+        public string MostrarCartas()
+        {
+            string cartas = "";
+            if (barajaCartas.Count > 0)
+            {
+                foreach (var carta in barajaCartas)
+                {
+                    cartas += $"[{carta.Numero}|{carta.Palo}] ";
+                }
+                return cartas;
+            }
+            return "no hay mas cartas";
+        }
     }
 }
