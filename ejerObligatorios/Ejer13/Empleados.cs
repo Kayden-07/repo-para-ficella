@@ -10,7 +10,7 @@ namespace Ejer13
     {
         private string nombre;
         private int edad, salario;
-        protected const int plus = 300; //protected: xpara que sea accesible en las clases hijas, pero no desde fuera de la herencia
+        protected const int plus = 300; //protected: para que sea accesible en las clases hijas, pero no desde fuera de la herencia
         public string Nombre
         {
             get { return nombre; }

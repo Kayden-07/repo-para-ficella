@@ -69,7 +69,7 @@ namespace Ejer14
         }
         public override string ToString()
         {
-            return base.ToString() + $", Días a caducar: {diasCaduca}";
+            return base.ToString() + $", Dias a caducar: {diasCaduca}";
         }
     }
 

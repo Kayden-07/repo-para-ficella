@@ -29,7 +29,7 @@ namespace Ejer14
                 precioTotal += precioProducto;
             }
 
-            Console.WriteLine($"Precio total de todos los productos (5 unidades de cada uno): {precioTotal}");
+            Console.WriteLine($"Precio total de todos los productos: {precioTotal}");
             Console.ReadKey();
         }
     }

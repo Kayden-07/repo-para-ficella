@@ -107,7 +107,7 @@ namespace Ejer15
                     }
                     else
                     {
-                        Console.WriteLine($"Estantería [{i},{j}]: Vacía");
+                        Console.WriteLine($"Estanteria [{i},{j}]: Vacia");
                     }
                 }
             }

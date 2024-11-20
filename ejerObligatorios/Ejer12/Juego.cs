@@ -35,7 +35,7 @@ namespace Ejer12
 
                 if (jugador.Vivo)
                 {
-                    Console.WriteLine($"{jugador.Nombre} no ha murio en esta ronda");
+                    Console.WriteLine($"{jugador.Nombre} no murio en esta ronda");
                 }
                 else
                 {

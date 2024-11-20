@@ -22,22 +22,22 @@ namespace Ejer15
             almacen.AgregarProducto(soda1);
             almacen.AgregarProducto(soda2);
 
-            Console.WriteLine("Información de todos los productos en el almacén:");
+            Console.WriteLine("Informacion de todos los productos en el almacen:");
             almacen.MostrarInfo();
 
             double precioTotal = almacen.CalcularPrecioTotal();
-            Console.WriteLine($"El precio total del almacén es: {precioTotal}");
+            Console.WriteLine($"El precio total del almacen es: {precioTotal}");
 
             double precioMarca = almacen.CalcularPrecioPorMarca("Coca-Cola");
             Console.WriteLine($"El precio total de productos con la marca 'Coca-Cola' es: {precioMarca}");
 
             double precioEstanteria = almacen.CalcularPrecioPorEstanteria(1); 
-            Console.WriteLine($"El precio total de la estantería 1 (columna 1) es: {precioEstanteria}");
+            Console.WriteLine($"El precio total de la estanteria 1 (columna 1) es: {precioEstanteria}");
 
-            Console.WriteLine("Intentando eliminar el producto con ID 3:");
+            Console.WriteLine("Eliminar el producto con ID 3:");
             almacen.EliminarProducto(3); 
 
-            Console.WriteLine("Información de todos los productos después de la eliminación:");
+            Console.WriteLine("Informacion de todos los productos despues de eliminar:");
             almacen.MostrarInfo();
 
             Console.ReadKey();
